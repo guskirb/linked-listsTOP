@@ -102,6 +102,16 @@ class LinkedList {
         string += `null`;
         return string;
     }
+
+    insertAt(value, index) {
+        let current = this.head;
+
+        for (let x = 0; x < index - 1; x++) {
+            current = current.nextNode;
+        }
+        current.nextNode = new Node(value, current.nextNode);
+        this.size++;
+    }
 }
 
 
@@ -115,4 +125,7 @@ newLL.append('lol');
 console.log(newLL.getSize);
 // newLL.pop();
 console.log(newLL.find('lol'));
+console.log(newLL.insertAt('helloo', 1));
 console.log(newLL.toString());
+
+console.log(newLL.find('lol'));
