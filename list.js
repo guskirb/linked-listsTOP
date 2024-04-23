@@ -53,6 +53,16 @@ class LinkedList {
 
         return current.value;
     }
+
+    pop() {
+        let current = this.head
+
+        while (current.nextNode !== null) {
+            current = current.nextNode;
+        }
+
+        current.value = null;
+    }
 }
 
 const newLL = new LinkedList();
@@ -62,4 +72,6 @@ newLL.prepend('hi');
 newLL.append('sup');
 newLL.append('lol');
 
-console.log(newLL.atIndex(2));
+console.log(newLL.getTail);
+newLL.pop();
+console.log(newLL.getTail);
