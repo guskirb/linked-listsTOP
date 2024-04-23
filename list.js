@@ -56,12 +56,24 @@ class LinkedList {
 
     pop() {
         let current = this.head
-
         while (current.nextNode !== null) {
             current = current.nextNode;
         }
-
         current.value = null;
+        this.size--;
+    }
+
+    contains(value) {
+        let current = this.head
+
+        while (current !== null) {
+            if (current.value === value) {
+                return true;
+            } else {
+                current = current.nextNode;
+            }
+        }
+        return false;
     }
 }
 
@@ -72,6 +84,6 @@ newLL.prepend('hi');
 newLL.append('sup');
 newLL.append('lol');
 
-console.log(newLL.getTail);
+console.log(newLL.getSize);
 newLL.pop();
-console.log(newLL.getTail);
+console.log(newLL.getSize);
