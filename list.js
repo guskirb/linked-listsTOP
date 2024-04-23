@@ -112,9 +112,18 @@ class LinkedList {
         current.nextNode = new Node(value, current.nextNode);
         this.size++;
     }
+
+    remove(index) {
+        let current = this.head;
+
+        for (let x = 0; x < index - 1; x++) {
+            current = current.nextNode;
+        }
+        current.nextNode = current.nextNode.nextNode;
+    }
 }
 
-
+// console testing:
 const newLL = new LinkedList();
 
 newLL.append('wassup');
@@ -123,9 +132,10 @@ newLL.append('sup');
 newLL.append('lol');
 
 console.log(newLL.getSize);
-// newLL.pop();
+newLL.pop();
 console.log(newLL.find('lol'));
 console.log(newLL.insertAt('helloo', 1));
+console.log(newLL.remove(2));
 console.log(newLL.toString());
 
 console.log(newLL.find('lol'));
