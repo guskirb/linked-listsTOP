@@ -56,10 +56,10 @@ class LinkedList {
 
     pop() {
         let current = this.head
-        while (current.nextNode !== null) {
+        while (current.nextNode.nextNode !== null) {
             current = current.nextNode;
         }
-        current.value = null;
+        current.nextNode = null;
         this.size--;
     }
 
@@ -75,7 +75,35 @@ class LinkedList {
         }
         return false;
     }
+
+    find(value) {
+        let current = this.head
+        let index = 0;
+
+        while (current !== null) {
+            if (current.value === value) {
+                return index;
+            } else {
+                current = current.nextNode;
+                index++;
+            }
+        }
+        return null;
+    }
+
+    toString() {
+        let current = this.head
+        let string = '';
+
+        while (current !== null) {
+            string += `( ${current.value} ) -> `;
+            current = current.nextNode;
+        }
+        string += `null`;
+        return string;
+    }
 }
+
 
 const newLL = new LinkedList();
 
@@ -85,5 +113,6 @@ newLL.append('sup');
 newLL.append('lol');
 
 console.log(newLL.getSize);
-newLL.pop();
-console.log(newLL.getSize);
+// newLL.pop();
+console.log(newLL.find('lol'));
+console.log(newLL.toString());
