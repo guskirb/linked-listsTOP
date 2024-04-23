@@ -1,12 +1,8 @@
-let node;
+let Node;
 
-export default node = class Node {
+export default Node = class newNode {
     constructor(value = null, nextNode = null) {
         this.value = value;
         this.nextNode = nextNode;
     }
 }
-
-const hello = new node("hello");
-
-console.log(hello);
